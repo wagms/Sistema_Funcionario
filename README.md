@@ -1,5 +1,6 @@
 # Sisteman de Gestão de Funcionários
 API REST desenvolvida em **Java 21** com **Spring Boot 3.5.6**, responsável por gerenciar o cadastro, listagem, atualização e inativação de funcionários
+---
       Frontend realizado por: Pedro Assumpção
       Backend realizado por: Wagner Gomes
 ---
