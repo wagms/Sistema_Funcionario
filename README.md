@@ -14,7 +14,7 @@ API REST desenvolvida em **Java 21** com **Spring Boot 3.5.6**, responsável por
 3. Acesse a documentação Swagger:
 4. http://localhost:8080/swagger-ui.html
 
-5. # Dependências utilizadas
+5. ## Dependências utilizadas
 6. - Java 21
    - Spring Boot 3.5.6
    - Spring Web
