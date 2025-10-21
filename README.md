@@ -29,3 +29,9 @@ API REST desenvolvida em **Java 21** com **Spring Boot 3.5.6**, responsável por
       H2 Console: http://localhost:8080/h2-console
 
 ## Exemplos de endpoint
+
+      GET/api/funcionarios = Lista todos (com filtros)
+      GET/api/funcionarios/{id} = Busca por ID
+      POST/api/funcionarios = Cadastra novo funcionário
+      PUT/api/funcionarios{id} = Atualiza funcionário
+      PATCH/api/funcionarios/{id}/invativar = Inativa funcionário
