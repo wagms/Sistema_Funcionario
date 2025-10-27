@@ -1,0 +1,4 @@
+com\SenaiWagnerGomesPedroAssumps\Sistema_Funcionario\SistemaFuncionarioApplication.class
+com\SenaiWagnerGomesPedroAssumps\Sistema_Funcionario\entity\Funcionario.class
+com\SenaiWagnerGomesPedroAssumps\Sistema_Funcionario\dto\FuncionarioResponseDTO.class
+com\SenaiWagnerGomesPedroAssumps\Sistema_Funcionario\dto\FuncionarioRequestDTO.class
