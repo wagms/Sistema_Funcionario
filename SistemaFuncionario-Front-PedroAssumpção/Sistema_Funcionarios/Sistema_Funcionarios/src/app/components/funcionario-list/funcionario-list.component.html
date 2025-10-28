@@ -1,0 +1,77 @@
+<p-toolbar styleClass="card-glass" [style]="{ marginBottom:'16px', padding:'12px 16px', borderRadius:'14px' }">
+  <div class="p-toolbar-group-start">
+    <span class="h-title" style="font-size:20px">Funcionários</span>
+  </div>
+  <div class="p-toolbar-group-end flex gap-2">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input pInputText [ngModel]="busca" (ngModelChange)="search$.next($event)"
+             placeholder="Buscar por nome, e-mail ou cargo" />
+    </span>
+
+    <p-dropdown
+      [options]="cargos"
+      [(ngModel)]="cargo"
+      placeholder="Cargo"
+      [showClear]="true"
+      [appendTo]="'body'"
+      (onChange)="aplicarFiltros()">
+    </p-dropdown>
+
+    <p-selectButton
+      [options]="statusOptions"
+      [(ngModel)]="ativo"
+      optionLabel="label"
+      optionValue="value"
+      (onChange)="aplicarFiltros()">
+    </p-selectButton>
+
+    <a routerLink="/funcionarios/new" pButton icon="pi pi-plus" label="Novo"></a>
+  </div>
+</p-toolbar>
+
+<p-card class="card-glass">
+  <p-table
+    [value]="funcionarios"
+    [loading]="loading"
+    [paginator]="true" [rows]="10"
+    [rowsPerPageOptions]="[5,10,20]"
+    dataKey="id"
+    responsiveLayout="scroll">
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Cargo</th>
+        <th>Salário</th>
+        <th>Admissão</th>
+        <th>Status</th>
+        <th style="width:230px">Ações</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-fx>
+      <tr>
+        <td>{{ fx.nome }}</td>
+        <td>{{ fx.email }}</td>
+        <td>{{ fx.cargo }}</td>
+        <td>R$ {{ fx.salario | number:'1.2-2' }}</td>
+        <td>{{ fx.dataAdmissao | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <p-tag [severity]="fx.ativo ? 'success' : 'danger'" [value]="fx.ativo ? 'Ativo' : 'Inativo'"></p-tag>
+        </td>
+        <td class="flex gap-2">
+          <a [routerLink]="['/funcionarios', fx.id, 'edit']" pButton icon="pi pi-pencil" label="Editar"></a>
+          <button pButton icon="pi pi-times" label="Inativar" class="p-button-danger" (click)="confirmarInativar(fx)"></button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="7" class="text-center">Nenhum registro encontrado.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
