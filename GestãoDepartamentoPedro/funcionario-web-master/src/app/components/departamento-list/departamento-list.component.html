@@ -1,0 +1,21 @@
+<p-table [value]="departamentos">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nome</th>
+      <th>Sigla</th>
+      <th>Ativo</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-departamento>
+    <tr>
+      <td>{{ departamento.nome }}</td>
+      <td>{{ departamento.sigla }}</td>
+      <td><p-tag [value]="departamento.ativo ? 'Ativo' : 'Inativo'" [severity]="departamento.ativo ? 'success' : 'danger'"></p-tag></td>
+      <td>
+        <p-button icon="pi pi-pencil" [routerLink]="['/departamentos/edit', departamento.id]"></p-button>
+        <p-button icon="pi pi-times" (click)="inativarDepartamento(departamento.id)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

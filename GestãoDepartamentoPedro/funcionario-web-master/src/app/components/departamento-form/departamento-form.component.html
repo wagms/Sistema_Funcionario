@@ -1,0 +1,23 @@
+<div class="p-grid">
+  <div class="p-col-12">
+    <h2>{{ departamento.id ? 'Editar Departamento' : 'Criar Departamento' }}</h2>
+    <form (ngSubmit)="saveDepartamento()">
+      <div class="p-field">
+        <label for="nome">Nome</label>
+        <input id="nome" [(ngModel)]="departamento.nome" name="nome" pInputText required />
+      </div>
+
+      <div class="p-field">
+        <label for="sigla">Sigla</label>
+        <input id="sigla" [(ngModel)]="departamento.sigla" name="sigla" pInputText required />
+      </div>
+
+      <div class="p-field-checkbox">
+        <p-checkbox [(ngModel)]="departamento.ativo" name="ativo"></p-checkbox>
+        <label for="ativo">Ativo</label>
+      </div>
+
+      <p-button label="Salvar" type="submit" [disabled]="!departamento.nome || !departamento.sigla"></p-button>
+    </form>
+  </div>
+</div>
